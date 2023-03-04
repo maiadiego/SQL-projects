@@ -18,6 +18,8 @@ VALUES ('Moletom', 'Agasalhos', 19.99),
 ('Kit Cuecas', 'Roupas intimas', 49.99),
 ('Short de praia', 'Roupas de verao', 59.99);
 ```
+![Tabela products](https://github.com/maiadiego/SQL-projects/blob/master/imagens/tabela_produto.png)
+
 Seguindo os mesmos passos para gerar a tabela **inventory**
 ```sql
 CREATE TABLE inventory (
@@ -44,6 +46,9 @@ VALUES (1, '2022-01-01', 100),
        (4, '2022-01-03', 80),
        (5, '2022-01-03', 200);
 ```
+
+![Tabela inventory](https://github.com/maiadiego/SQL-projects/blob/master/imagens/tabela_inventory.png)
+
 Tendo sido criadas as devidas tabelas, vamos começar a fazer algumas perguntas para os nossos dados com foco na análise do inventário da loja.
 ### 1. Quais são os cinco principais produtos com as quantidades de estoque mais altas na data de estoque mais recente?
 ```sql
@@ -54,6 +59,7 @@ WHERE i.inventory_date = (SELECT MAX(inventory_date) FROM inventory)
 ORDER BY i.inventory_level DESC
 LIMIT 5; 
 ```
+![5 products](https://github.com/maiadiego/SQL-projects/blob/master/imagens/5-products-high-inventory.png)
 
 ### 2. Qual é a quantidade de estoque total para cada categoria de produto na data de estoque mais recente?
 ```sql
@@ -63,6 +69,7 @@ JOIN inventory i ON p.product_id = i.product_id
 WHERE i.inventory_date = (SELECT MAX(inventory_date) FROM inventory)
 GROUP BY p.product_category;
 ```
+![](https://github.com/maiadiego/SQL-projects/blob/master/imagens/total_inventory_level.png)
 
 ### 3. Qual é a quantidade média de estoque para cada categoria de produto no mês de Janeiro de 2022?
 ```sql
@@ -72,6 +79,7 @@ JOIN inventory i ON p.product_id = i.product_id
 WHERE i.inventory_date >= '2022-01-01' AND i.inventory_date < '2022-02-01'
 GROUP BY p.product_category;
 ```
+![](https://github.com/maiadiego/SQL-projects/blob/master/imagens/avg_inventory_level.png)
 
 ### 4. Qual é a tendência geral nas quantidades de estoque para cada categoria de produto no mês de Janeiro de 2022?
 ```sql 
@@ -82,6 +90,7 @@ WHERE i.inventory_date >= '2022-01-01' AND i.inventory_date < '2022-02-01'
 GROUP BY p.product_category, i.inventory_date
 ORDER BY p.product_category, i.inventory_date;
 ```
+![](https://github.com/maiadiego/SQL-projects/blob/master/imagens/avg_inventory_level_tendency.png)
 
 
 
