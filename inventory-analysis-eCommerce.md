@@ -92,5 +92,7 @@ ORDER BY p.product_category, i.inventory_date;
 ```
 ![](https://github.com/maiadiego/SQL-projects/blob/master/imagens/avg_inventory_level_tendency.png)
 
+Neste estudo de caso, vimos como algumas consultas SQL podem ajudar a loja a gerenciar e rastrear o seu estoque. À medida que mais tabelas são fornecidas, podemos realizar consultas mais aprofundadas para auxiliar na informação e nas tomadas de decisão.
+
 
 
